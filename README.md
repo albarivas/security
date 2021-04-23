@@ -1,4 +1,4 @@
-# Code Examples that show how to work with Salesforce Data in LWC
+# Code Examples that show how to enforce security in Apex and LWC
 
 1. Clone the repo:
 
