@@ -1,0 +1,17 @@
+<template>
+  <lightning-card title="Read - CRUD Checks">
+    <template if:true={accounts.data}>
+      <div class="slds-var-p-around_small">
+        <lightning-datatable
+          key-field="Id"
+          data={accounts.data}
+          columns={columns}
+        >
+        </lightning-datatable>
+      </div>
+    </template>
+    <template if:true={errors}>
+      <p>{errors}</p>
+    </template>
+  </lightning-card>
+</template>

@@ -1,5 +1,25 @@
 public with sharing class AccountController {
 
+  @AuraEnabled(cacheable=true)
+  public static List<Account> getAccounts() {
+    return [
+      SELECT Name, AnnualRevenue, Industry
+      FROM Account
+      ORDER BY Name
+    ];
+  }
+
+  @AuraEnabled(cacheable=true)
+  public static List<Account> getFilteredAccountsInjection(String searchValue) {
+    return (List<Account>)Database.query('SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE \'%' + searchValue + '%\' ORDER BY Name');
+  }
+
+  @AuraEnabled(cacheable=true)
+  public static List<Account> getFilteredAccounts(String searchValue) {
+    return (List<Account>)Database.query('SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE \'%' + String.escapeSingleQuotes(searchValue) + '%\' ORDER BY Name');
+  }
+
+  @AuraEnabled(cacheable=true)
   public static List<Account> getAccountsCRUDCheck() {
     if (Schema.sObjectType.Account.isAccessible()) {
       return [
@@ -11,6 +31,7 @@ public with sharing class AccountController {
     return new List<Account>();
   }
 
+  @AuraEnabled(cacheable=true)
   public static List<Account> getAccountsFLSCheck() {
     if (Schema.sObjectType.Account.fields.Name.isAccessible()
       && Schema.sObjectType.Account.fields.AnnualRevenue.isAccessible()
@@ -24,6 +45,7 @@ public with sharing class AccountController {
     return new List<Account>();
   }
 
+  @AuraEnabled(cacheable=true)
   public static List<Account> getAccountsWithSecurityEnforced() {
     return [
       SELECT Name, AnnualRevenue, Industry
@@ -33,6 +55,7 @@ public with sharing class AccountController {
     ];
   }
 
+  @AuraEnabled(cacheable=true)
   public static List<Account> getAccountsStripInaccessible() {
     SObjectAccessDecision securityDecision = Security.stripInaccessible(AccessType.READABLE,[
       SELECT Name, AnnualRevenue, Industry
@@ -44,6 +67,19 @@ public with sharing class AccountController {
     return securityDecision.getRecords();
   }
 
+  @AuraEnabled
+  public static Account createAccount() {
+    Account acct = new Account();
+    acct.Name = 'Cruzcampo';
+    acct.AnnualRevenue = 1000000;
+    acct.Industry = 'Food & Beverage';
+
+    insert acct;
+
+    return acct;
+  }
+
+  @AuraEnabled
   public static Account createAccountCRUDCheck() {
     Account acct;
     if (Schema.sObjectType.Account.isCreateable()) {
@@ -53,12 +89,15 @@ public with sharing class AccountController {
       acct.Industry = 'Food & Beverage';
 
       insert acct;
+    } else {
+      throw new DMLException('No object permissions to create account.');
     }
 
     return acct;
   }
 
-  public static Account createAccounFLSCheck() {
+  @AuraEnabled
+  public static Account createAccountFLSCheck() {
     Account acct;
     if (Schema.sObjectType.Account.fields.Name.isCreateable()
     && Schema.sObjectType.Account.fields.AnnualRevenue.isCreateable()
@@ -69,11 +108,14 @@ public with sharing class AccountController {
       acct.Industry = 'Food & Beverage';
 
       insert acct;
+    } else {
+      throw new DMLException('No field permissions to create account.');
     }
 
     return acct;
   }
 
+  @AuraEnabled
   public static Account createAccountStripInaccessible() {
     Account acct = new Account();
     acct.Name = 'Cruzcampo';

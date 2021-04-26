@@ -7,7 +7,15 @@
     <hasActivationRequired>false</hasActivationRequired>
     <label>Security</label>
     <tabSettings>
-        <tab>security</tab>
+        <tab>createExamples</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>readExamples</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>soqlInjection</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>

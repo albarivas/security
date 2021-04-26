@@ -24,8 +24,8 @@
     "eslint-config-prettier": "^6.11.0",
     "husky": "^4.2.1",
     "lint-staged": "^10.0.7",
-    "prettier": "^2.0.5",
-    "prettier-plugin-apex": "^1.6.0"
+    "prettier": "^2.2.1",
+    "prettier-plugin-apex": "^1.9.0"
   },
   "husky": {
     "hooks": {

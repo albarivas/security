@@ -1,0 +1,31 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "AccountRef1"
+      },
+      "Name": "Primitech",
+      "AnnualRevenue": "1000000",
+      "Industry": "Engineering"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "AccountRef2"
+      },
+      "Name": "Northern Trail Cycling",
+      "AnnualRevenue": "3000000",
+      "Industry": "Manufacturing"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "AccountRef3"
+      },
+      "Name": "Trailblazers",
+      "AnnualRevenue": "2000000",
+      "Industry": "Education"
+    }
+  ]
+}

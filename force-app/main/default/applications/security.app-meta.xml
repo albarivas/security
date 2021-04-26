@@ -10,6 +10,9 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Security in Salesforce</label>
     <navType>Standard</navType>
-    <tabs>security</tabs>
+    <tabs>readExamples</tabs>
+    <tabs>createExamples</tabs>
+    <tabs>soqlInjection</tabs>
+    <tabs>standard-Account</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>
