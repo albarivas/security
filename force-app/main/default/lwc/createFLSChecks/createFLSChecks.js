@@ -1,6 +1,7 @@
 import { LightningElement, wire } from "lwc";
 import { reduceErrors } from "c/ldsUtils";
 import createAccount from "@salesforce/apex/AccountController.createAccountFLSCheck";
+import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
 export default class CreateFLSChecks extends LightningElement {
   handleButtonClick() {
@@ -12,7 +13,6 @@ export default class CreateFLSChecks extends LightningElement {
           variant: "success"
         });
         this.dispatchEvent(toastEvent);
-        refreshApex(this.accounts);
       })
       .catch((error) => {
         const toastEvent = new ShowToastEvent({

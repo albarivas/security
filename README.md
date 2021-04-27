@@ -36,6 +36,12 @@
    sfdx force:data:tree:import -p ./data/sample-data-plan.json
    ```
 
+1. Install
+
+   ```
+   sfdx force:package:install --package 04t0I000000jDz4QAE
+   ```
+
 1. Open the scratch org:
 
    ```

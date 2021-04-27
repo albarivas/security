@@ -3,12 +3,12 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>readNoChecks</componentName>
+                <componentName>withSharing</componentName>
             </componentInstance>
         </itemInstances>
         <itemInstances>
             <componentInstance>
-                <componentName>readWithSecurityEnforced</componentName>
+                <componentName>inheritedSharing</componentName>
             </componentInstance>
         </itemInstances>
         <name>region1</name>
@@ -17,12 +17,7 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>readCrud</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentName>readStripInaccessible</componentName>
+                <componentName>withoutSharing</componentName>
             </componentInstance>
         </itemInstances>
         <name>region2</name>
@@ -31,13 +26,13 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>readFls</componentName>
+                <componentName>noSharing</componentName>
             </componentInstance>
         </itemInstances>
         <name>region3</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Read Examples</masterLabel>
+    <masterLabel>Sharing Examples</masterLabel>
     <template>
         <name>flexipage:appHomeTemplateThreeColumns</name>
     </template>

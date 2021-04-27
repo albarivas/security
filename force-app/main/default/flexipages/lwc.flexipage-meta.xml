@@ -3,12 +3,7 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>readNoChecks</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentName>readWithSecurityEnforced</componentName>
+                <componentName>manualDOMManipulation</componentName>
             </componentInstance>
         </itemInstances>
         <name>region1</name>
@@ -17,27 +12,17 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>readCrud</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentName>readStripInaccessible</componentName>
+                <componentName>lwcDOMManipulation</componentName>
             </componentInstance>
         </itemInstances>
         <name>region2</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>readFls</componentName>
-            </componentInstance>
-        </itemInstances>
         <name>region3</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Read Examples</masterLabel>
+    <masterLabel>LWC Examples</masterLabel>
     <template>
         <name>flexipage:appHomeTemplateThreeColumns</name>
     </template>

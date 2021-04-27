@@ -15,7 +15,15 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
+        <tab>sharing</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>soqlInjection</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>lwc</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>

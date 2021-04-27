@@ -1,0 +1,13 @@
+<template>
+  <lightning-card title="LWC DOM Manipulation">
+    <div class="slds-var-p-around_x-large">
+      <ul>
+        <template for:each={demographics} for:item="demographic">
+          <li key={demographic.state}>
+            {demographic.state} (pop: {demographic.population})
+          </li>
+        </template>
+      </ul>
+    </div>
+  </lightning-card>
+</template>

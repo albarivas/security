@@ -1,46 +1,43 @@
 public with sharing class AccountController {
-
   @AuraEnabled(cacheable=true)
   public static List<Account> getAccounts() {
-    return [
-      SELECT Name, AnnualRevenue, Industry
-      FROM Account
-      ORDER BY Name
-    ];
+    return [SELECT Name, AnnualRevenue, Industry FROM Account ORDER BY Name];
   }
 
   @AuraEnabled(cacheable=true)
   public static List<Account> getFilteredAccountsInjection(String searchValue) {
-    return (List<Account>)Database.query('SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE \'%' + searchValue + '%\' ORDER BY Name');
+    return (List<Account>) Database.query(
+      'SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE \'%' +
+      searchValue +
+      '%\' ORDER BY Name'
+    );
   }
 
   @AuraEnabled(cacheable=true)
   public static List<Account> getFilteredAccounts(String searchValue) {
-    return (List<Account>)Database.query('SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE \'%' + String.escapeSingleQuotes(searchValue) + '%\' ORDER BY Name');
+    return (List<Account>) Database.query(
+      'SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE \'%' +
+      String.escapeSingleQuotes(searchValue) +
+      '%\' ORDER BY Name'
+    );
   }
 
   @AuraEnabled(cacheable=true)
   public static List<Account> getAccountsCRUDCheck() {
     if (Schema.sObjectType.Account.isAccessible()) {
-      return [
-        SELECT Name, AnnualRevenue, Industry
-        FROM Account
-        ORDER BY Name
-      ];
+      return [SELECT Name, AnnualRevenue, Industry FROM Account ORDER BY Name];
     }
     return new List<Account>();
   }
 
   @AuraEnabled(cacheable=true)
   public static List<Account> getAccountsFLSCheck() {
-    if (Schema.sObjectType.Account.fields.Name.isAccessible()
-      && Schema.sObjectType.Account.fields.AnnualRevenue.isAccessible()
-      && Schema.sObjectType.Account.fields.Industry.isAccessible()) {
-      return [
-        SELECT Name, AnnualRevenue, Industry
-        FROM Account
-        ORDER BY Name
-      ];
+    if (
+      Schema.sObjectType.Account.fields.Name.isAccessible() &&
+      Schema.sObjectType.Account.fields.AnnualRevenue.isAccessible() &&
+      Schema.sObjectType.Account.fields.Industry.isAccessible()
+    ) {
+      return [SELECT Name, AnnualRevenue, Industry FROM Account ORDER BY Name];
     }
     return new List<Account>();
   }
@@ -57,12 +54,15 @@ public with sharing class AccountController {
 
   @AuraEnabled(cacheable=true)
   public static List<Account> getAccountsStripInaccessible() {
-    SObjectAccessDecision securityDecision = Security.stripInaccessible(AccessType.READABLE,[
-      SELECT Name, AnnualRevenue, Industry
-      FROM Account
-      WITH SECURITY_ENFORCED
-      ORDER BY Name
-    ]);
+    SObjectAccessDecision securityDecision = Security.stripInaccessible(
+      AccessType.READABLE,
+      [
+        SELECT Name, AnnualRevenue, Industry
+        FROM Account
+        WITH SECURITY_ENFORCED
+        ORDER BY Name
+      ]
+    );
 
     return securityDecision.getRecords();
   }
@@ -99,9 +99,11 @@ public with sharing class AccountController {
   @AuraEnabled
   public static Account createAccountFLSCheck() {
     Account acct;
-    if (Schema.sObjectType.Account.fields.Name.isCreateable()
-    && Schema.sObjectType.Account.fields.AnnualRevenue.isCreateable()
-    && Schema.sObjectType.Account.fields.Industry.isCreateable()) {
+    if (
+      Schema.sObjectType.Account.fields.Name.isCreateable() &&
+      Schema.sObjectType.Account.fields.AnnualRevenue.isCreateable() &&
+      Schema.sObjectType.Account.fields.Industry.isCreateable()
+    ) {
       acct = new Account();
       acct.Name = 'Cruzcampo';
       acct.AnnualRevenue = 1000000;
@@ -123,10 +125,12 @@ public with sharing class AccountController {
     acct.Industry = 'Food & Beverage';
 
     SObjectAccessDecision securityDecision = Security.stripInaccessible(
-                                        AccessType.CREATABLE, new List<Account>{acct});
+      AccessType.CREATABLE,
+      new List<Account>{ acct }
+    );
 
     insert securityDecision.getRecords();
 
-    return (Account)securityDecision.getRecords()[0];
+    return (Account) securityDecision.getRecords()[0];
   }
 }
