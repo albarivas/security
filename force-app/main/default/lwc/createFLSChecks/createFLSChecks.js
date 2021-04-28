@@ -1,4 +1,4 @@
-import { LightningElement, wire } from "lwc";
+import { LightningElement } from "lwc";
 import { reduceErrors } from "c/ldsUtils";
 import createAccount from "@salesforce/apex/AccountController.createAccountFLSCheck";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
