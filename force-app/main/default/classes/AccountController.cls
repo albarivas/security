@@ -5,24 +5,6 @@ public with sharing class AccountController {
   }
 
   @AuraEnabled(cacheable=true)
-  public static List<Account> getFilteredAccountsInjection(String searchValue) {
-    return (List<Account>) Database.query(
-      'SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE \'%' +
-      searchValue +
-      '%\' ORDER BY Name'
-    );
-  }
-
-  @AuraEnabled(cacheable=true)
-  public static List<Account> getFilteredAccounts(String searchValue) {
-    return (List<Account>) Database.query(
-      'SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE \'%' +
-      String.escapeSingleQuotes(searchValue) +
-      '%\' ORDER BY Name'
-    );
-  }
-
-  @AuraEnabled(cacheable=true)
   public static List<Account> getAccountsCRUDCheck() {
     if (Schema.sObjectType.Account.isAccessible()) {
       return [SELECT Name, AnnualRevenue, Industry FROM Account ORDER BY Name];
@@ -56,15 +38,28 @@ public with sharing class AccountController {
   public static List<Account> getAccountsStripInaccessible() {
     SObjectAccessDecision securityDecision = Security.stripInaccessible(
       AccessType.READABLE,
-      [
-        SELECT Name, AnnualRevenue, Industry
-        FROM Account
-        WITH SECURITY_ENFORCED
-        ORDER BY Name
-      ]
+      [SELECT Name, AnnualRevenue, Industry FROM Account ORDER BY Name]
     );
 
     return securityDecision.getRecords();
+  }
+
+  @AuraEnabled(cacheable=true)
+  public static List<Account> getFilteredAccountsInjection(String searchValue) {
+    return (List<Account>) Database.query(
+      'SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE \'%' +
+      searchValue +
+      '%\' ORDER BY Name'
+    );
+  }
+
+  @AuraEnabled(cacheable=true)
+  public static List<Account> getFilteredAccounts(String searchValue) {
+    return (List<Account>) Database.query(
+      'SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE \'%' +
+      String.escapeSingleQuotes(searchValue) +
+      '%\' ORDER BY Name'
+    );
   }
 
   @AuraEnabled
