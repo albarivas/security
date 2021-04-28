@@ -1,6 +1,10 @@
 <template>
   <lightning-card title="Manual DOM Manipulation">
     <div class="slds-var-p-around_x-large">
+      <p>
+        This component is sensible to XSS as input is not sanitized by the LWC
+        framework.
+      </p>
       <ul class="myList" lwc:dom="manual"></ul>
     </div>
   </lightning-card>

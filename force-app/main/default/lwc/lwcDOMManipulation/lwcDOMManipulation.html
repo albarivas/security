@@ -1,6 +1,7 @@
 <template>
   <lightning-card title="LWC DOM Manipulation">
     <div class="slds-var-p-around_x-large">
+      <p>This component is not sensible to XSS.</p>
       <ul>
         <template for:each={demographics} for:item="demographic">
           <li key={demographic.state}>
