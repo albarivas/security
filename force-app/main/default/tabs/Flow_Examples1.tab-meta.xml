@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Created by Lightning App Builder</description>
+    <flexiPage>Flow_Examples</flexiPage>
+    <label>Flow Examples</label>
+    <motif>Custom69: Guitar</motif>
+</CustomTab>

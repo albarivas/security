@@ -46,19 +46,40 @@ public with sharing class AccountController {
 
   @AuraEnabled(cacheable=true)
   public static List<Account> getFilteredAccountsInjection(String searchValue) {
+    String likeValue = '\'%' + searchValue + '%\'';
     return (List<Account>) Database.query(
-      'SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE \'%' +
-      searchValue +
-      '%\' ORDER BY Name'
+      'SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE ' +
+      likeValue +
+      ' ORDER BY Name'
     );
   }
 
   @AuraEnabled(cacheable=true)
   public static List<Account> getFilteredAccounts(String searchValue) {
+    String likeValue = '%' + searchValue + '%';
+    return [
+      SELECT Name, AnnualRevenue, Industry
+      FROM Account
+      WHERE Name LIKE :likeValue
+      ORDER BY Name
+    ];
+  }
+
+  @AuraEnabled(cacheable=true)
+  public static List<Account> getFilteredAccounts2(String searchValue) {
+    String likeValue = '%' + searchValue + '%';
     return (List<Account>) Database.query(
-      'SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE \'%' +
-      String.escapeSingleQuotes(searchValue) +
-      '%\' ORDER BY Name'
+      'SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE :likeValue ORDER BY Name'
+    );
+  }
+
+  @AuraEnabled(cacheable=true)
+  public static List<Account> getFilteredAccounts3(String searchValue) {
+    String likeValue = '\'%' + String.escapeSingleQuotes(searchValue) + '%\'';
+    return (List<Account>) Database.query(
+      'SELECT Name, AnnualRevenue, Industry FROM Account WHERE Name LIKE ' +
+      likeValue +
+      ' ORDER BY Name'
     );
   }
 

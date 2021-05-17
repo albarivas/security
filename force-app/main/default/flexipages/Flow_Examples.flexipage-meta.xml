@@ -3,36 +3,29 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>soqlInjection</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentName>noSoqlInjection3</componentName>
+                <componentInstanceProperties>
+                    <name>flowLayout</name>
+                    <value>oneColumn</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>flowName</name>
+                    <value>Security_Test</value>
+                </componentInstanceProperties>
+                <componentName>flowruntime:interview</componentName>
             </componentInstance>
         </itemInstances>
         <name>region1</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>noSoqlInjection</componentName>
-            </componentInstance>
-        </itemInstances>
         <name>region2</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>noSoqlInjection2</componentName>
-            </componentInstance>
-        </itemInstances>
         <name>region3</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>SOQL Injection Examples</masterLabel>
+    <masterLabel>Flow Examples</masterLabel>
     <template>
         <name>flexipage:appHomeTemplateThreeColumns</name>
     </template>

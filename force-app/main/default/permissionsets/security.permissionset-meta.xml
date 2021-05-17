@@ -27,6 +27,10 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
+        <tab>lwc</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>readExamples</tab>
         <visibility>Visible</visibility>
     </tabSettings>
@@ -39,7 +43,7 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>lwc</tab>
+        <tab>Flow_Examples</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>
