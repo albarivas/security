@@ -12,7 +12,7 @@ export default class ManualDOMManipulation extends LightningElement {
     },
     {
       state: "Florida",
-      population: 21000000
+      population: "<b>21000000</b>"
     }
   ];
   renderedCallback() {

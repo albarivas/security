@@ -27,10 +27,6 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>lwc</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>readExamples</tab>
         <visibility>Visible</visibility>
     </tabSettings>
@@ -40,6 +36,14 @@
     </tabSettings>
     <tabSettings>
         <tab>soqlInjection</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>xss</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>csrf</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>

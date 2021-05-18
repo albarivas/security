@@ -14,7 +14,10 @@
     <tabs>createExamples</tabs>
     <tabs>sharing</tabs>
     <tabs>soqlInjection</tabs>
-    <tabs>lwc</tabs>
+    <tabs>xss</tabs>
+    <tabs>CSRF_Examples</tabs>
+    <tabs>Flow_Examples1</tabs>
     <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>

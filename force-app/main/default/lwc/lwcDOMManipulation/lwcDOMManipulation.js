@@ -12,7 +12,7 @@ export default class LwcDOMManipulation extends LightningElement {
     },
     {
       state: "Florida",
-      population: 21000000
+      population: "<b>21000000</b>"
     }
   ];
 }

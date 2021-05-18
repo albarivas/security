@@ -1,0 +1,16 @@
+<template>
+  <lightning-card title="XSS -  Stored XSS">
+    <div class="slds-var-p-around_medium">
+      <p>
+        Malicious scripts may be stored in your database!!! To see this example
+        in action, create a contact which name is:
+        <code>alert('Malicious!')</code>
+      </p>
+    </div>
+    <lightning-button
+      class="slds-align_absolute-center"
+      label="Get Contact"
+      onclick={handleButtonClick}
+    ></lightning-button>
+  </lightning-card>
+</template>

@@ -1,8 +1,10 @@
 import { LightningElement } from "lwc";
-
+import { reduceErrors } from "c/ldsUtils";
+import createAccount from "@salesforce/apex/AccountController.createAccountCRUDCheck";
+import { ShowToastEvent } from "lightning/platformShowToastEvent";
 export default class Csrf extends LightningElement {
   connectedCallback() {
-    /*createAccount()
+    createAccount()
       .then((data) => {
         const toastEvent = new ShowToastEvent({
           title: "Account created",
@@ -18,6 +20,6 @@ export default class Csrf extends LightningElement {
           variant: "error"
         });
         this.dispatchEvent(toastEvent);
-      });*/
+      });
   }
 }
