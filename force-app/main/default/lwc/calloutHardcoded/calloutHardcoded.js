@@ -1,22 +1,18 @@
 import { LightningElement } from "lwc";
 import { reduceErrors } from "c/ldsUtils";
-import createAccount from "@salesforce/apex/AccountController.createAccount";
+import getShows from "@salesforce/apex/APICalloutController.getShows";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
-export default class CreateNoChecks extends LightningElement {
+export default class CalloutHardcoded extends LightningElement {
+  shows;
   handleButtonClick() {
-    createAccount()
+    getShows()
       .then((data) => {
-        const toastEvent = new ShowToastEvent({
-          title: "Account created",
-          message: "Record ID: " + data.Id,
-          variant: "success"
-        });
-        this.dispatchEvent(toastEvent);
+        this.shows = JSON.parse(data);
       })
       .catch((error) => {
         const toastEvent = new ShowToastEvent({
-          title: "Error creating account",
+          title: "Error retrieving shows",
           message: "Error: " + reduceErrors(error).join(","),
           variant: "error"
         });

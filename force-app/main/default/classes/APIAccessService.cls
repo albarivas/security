@@ -2,6 +2,7 @@ public class APIAccessService {
   private String accessToken;
   private String instanceUrl;
 
+  // user password oauth2 flow
   public APIAccessService() {
     String clientId = 'XXXXXX';
     String clientSecret = 'XXXXXX';
@@ -33,7 +34,7 @@ public class APIAccessService {
     instanceUrl = resp.instance_url;
   }
 
-  public void getShows() {
+  public String getShows() {
     String endpoint = instanceUrl + '/services/apexrest/shows';
 
     HttpRequest req = new HttpRequest();
@@ -44,7 +45,7 @@ public class APIAccessService {
     Http http = new Http();
     HTTPResponse res = http.send(req);
 
-    System.debug(res.getBody());
+    return res.getBody();
   }
 
   public class OAuthResponse {
