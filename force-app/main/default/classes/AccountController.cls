@@ -41,6 +41,8 @@ public with sharing class AccountController {
       [SELECT Name, AnnualRevenue, Industry FROM Account ORDER BY Name]
     );
 
+    System.debug(securityDecision.getRecords());
+
     return securityDecision.getRecords();
   }
 
