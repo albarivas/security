@@ -3,4 +3,9 @@ public with sharing class APICalloutController {
   public static String getShows() {
     return new APIAccessService().getShows();
   }
+
+  @AuraEnabled
+  public static String getShowsNamedCredential() {
+    return new APIAccessServiceNamedCredential().getShows();
+  }
 }
