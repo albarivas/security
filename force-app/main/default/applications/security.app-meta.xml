@@ -17,6 +17,7 @@
     <tabs>soqlInjection</tabs>
     <tabs>xss</tabs>
     <tabs>CSRF_Examples</tabs>
+    <tabs>Secrets_Examples</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
     <uiType>Lightning</uiType>

@@ -43,11 +43,15 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>csrf</tab>
+        <tab>CSRF_Examples</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>Flow_Examples</tab>
+        <tab>Flow_Examples1</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Secrets_Examples</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>

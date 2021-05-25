@@ -36,12 +36,6 @@
    sfdx force:data:tree:import -p ./data/sample-data-plan.json
    ```
 
-1. If you want to test locker DOM containment, install
-
-   ```
-   sfdx force:package:install --package 04t4W000002vsDKQAY
-   ```
-
 1. Open the scratch org:
 
    ```
