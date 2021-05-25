@@ -8,4 +8,9 @@ public with sharing class APICalloutController {
   public static String getShowsNamedCredential() {
     return new APIAccessServiceNamedCredential().getShows();
   }
+
+  @AuraEnabled
+  public static String getShowsNamedCredentialFields() {
+    return new APIAccessServiceNamedCredentialFields().getShows();
+  }
 }

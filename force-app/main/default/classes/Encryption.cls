@@ -8,7 +8,7 @@ public with sharing class Encryption {
 
     Blob encryptedData = Crypto.encryptWithManagedIV('AES256', cryptoKey, data);
 
-    // Encode Blob in Base64 so that we can represent it as an ASCII String
+    // Encode Blob in Base64
     return EncodingUtil.base64Encode(encryptedData);
   }
 
@@ -18,7 +18,7 @@ public with sharing class Encryption {
 
     Blob hash = Crypto.generateDigest('SHA512', data);
 
-    // Encode Blob in Base64 so that we can represent it as an ASCII String
+    // Encode Blob in Base64
     return EncodingUtil.base64Encode(hash);
   }
 
@@ -31,20 +31,20 @@ public with sharing class Encryption {
 
     Blob mac = Crypto.generateMac('hmacSHA512', data, cryptoKey);
 
-    // Encode Blob in Base64 so that we can represent it as an ASCII String
+    // Encode Blob in Base64
     return EncodingUtil.base64Encode(mac);
   }
 
   @AuraEnabled
   public static String digitalSignature() {
-    // Use generate AES key (private key)
+    // Use private key (must be in RSA's PKCS #8 (1.2) Private-Key Information Syntax Standard form)
     Blob cryptoKey = EncodingUtil.base64Decode(PRIVATE_KEY);
 
     Blob data = Blob.valueOf('Test data');
 
     Blob digitalSignature = Crypto.sign('RSA', data, cryptoKey);
 
-    // Encode Blob in Base64 so that we can represent it as an ASCII String
+    // Encode Blob in Base64
     return EncodingUtil.base64Encode(digitalSignature);
   }
 
