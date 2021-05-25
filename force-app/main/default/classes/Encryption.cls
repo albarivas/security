@@ -1,7 +1,7 @@
 public with sharing class Encryption {
   @AuraEnabled
   public static String encryptAES256() {
-    // Use generate AES key (private key)
+    // Generate AES key (private key)
     Blob cryptoKey = Crypto.generateAesKey(256);
 
     Blob data = Blob.valueOf('Test data');
@@ -24,7 +24,7 @@ public with sharing class Encryption {
 
   @AuraEnabled
   public static String macHMAC512() {
-    // Use generate AES key (private key)
+    // Use private key
     Blob cryptoKey = Blob.valueOf('mysupersecretkey');
 
     Blob data = Blob.valueOf('Test data');
