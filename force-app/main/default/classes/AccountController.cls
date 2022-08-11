@@ -88,7 +88,7 @@ public with sharing class AccountController {
   @AuraEnabled
   public static Account createAccount() {
     Account acct = new Account();
-    acct.Name = 'Cruzcampo';
+    acct.Name = 'ACME';
     acct.AnnualRevenue = 1000000;
     acct.Industry = 'Food & Beverage';
 
@@ -102,7 +102,7 @@ public with sharing class AccountController {
     Account acct;
     if (Schema.sObjectType.Account.isCreateable()) {
       acct = new Account();
-      acct.Name = 'Cruzcampo';
+      acct.Name = 'ACME';
       acct.AnnualRevenue = 1000000;
       acct.Industry = 'Food & Beverage';
 
@@ -123,7 +123,7 @@ public with sharing class AccountController {
       Schema.sObjectType.Account.fields.Industry.isCreateable()
     ) {
       acct = new Account();
-      acct.Name = 'Cruzcampo';
+      acct.Name = 'ACME';
       acct.AnnualRevenue = 1000000;
       acct.Industry = 'Food & Beverage';
 
@@ -138,7 +138,7 @@ public with sharing class AccountController {
   @AuraEnabled
   public static Account createAccountStripInaccessible() {
     Account acct = new Account();
-    acct.Name = 'Cruzcampo';
+    acct.Name = 'ACME';
     acct.AnnualRevenue = 1000000;
     acct.Industry = 'Food & Beverage';
 
