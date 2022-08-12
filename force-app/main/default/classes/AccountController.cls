@@ -47,6 +47,16 @@ public with sharing class AccountController {
   }
 
   @AuraEnabled(cacheable=true)
+  public static List<Account> getAccountsWithUserMode() {
+    return [
+      SELECT Name, AnnualRevenue, Industry
+      FROM Account
+      WITH USER_MODE
+      ORDER BY Name
+    ];
+  }
+
+  @AuraEnabled(cacheable=true)
   public static List<Account> getFilteredAccountsInjection(String searchValue) {
     String likeValue = '\'%' + searchValue + '%\'';
     return (List<Account>) Database.query(
@@ -150,5 +160,18 @@ public with sharing class AccountController {
     insert securityDecision.getRecords();
 
     return (Account) securityDecision.getRecords()[0];
+  }
+
+  @AuraEnabled
+  public static Account createAccountUserMode() {
+    Account acct = new Account();
+    acct.Name = 'ACME';
+    acct.AnnualRevenue = 1000000;
+    acct.Industry = 'Food & Beverage';
+
+    // prettier-ignore not working, so ignoring the whole file for now
+    insert as user acct;
+
+    return acct;
   }
 }
